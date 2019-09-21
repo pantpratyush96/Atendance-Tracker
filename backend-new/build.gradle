@@ -1,0 +1,45 @@
+// If you would like more information on the gradle-appengine-plugin please refer to the github page
+// https://github.com/GoogleCloudPlatform/gradle-appengine-plugin
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.42'
+    }
+}
+
+repositories {
+    jcenter();
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'appengine'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+dependencies {
+    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.42'
+    implementation 'javax.servlet:servlet-api:2.5'
+    implementation files('build/libs/jaxrs-api.jar')
+    implementation files('build/libs/java-json.jar')
+    implementation files('build/libs/xmlpull-xpp3-1.1.4c.jar')
+    implementation files('build/libs/mysql-connector.jar')
+    implementation files('build/libs/jdbc-api-1.4.jar')
+    implementation files('build/libs/com.mysql.jdbc_5.1.5.jar')
+    implementation 'com.google.cloud.sql:mysql-socket-factory:1.0.3'
+    implementation 'net.schmizz:sshj:0.10.0'
+    implementation files('build/libs/java-util-1.9.1.jar')
+    implementation 'com.google.cloud.sql:mysql-socket-factory:1.0.3'
+}
+
+appengine {
+    downloadSdk = true
+    appcfg {
+        oauth2 = true
+    }
+}

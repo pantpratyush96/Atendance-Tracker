@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Geofencing</string>
+    <string name="title">Title</string>
+    <string name="login">LOGIN</string>
+    <string name="mobNo">Enter Your Mobile Number</string>
+    <string name="enterMob"></string>
+    <string name="loginButton">Login</string>
+</resources>
